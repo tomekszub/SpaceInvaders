@@ -11,7 +11,14 @@ public class Enemy : MonoBehaviour
         else
         {
             other.gameObject.SetActive(false);
-            GetComponentInParent<GameManager>().AddPoint();
+            if (other.gameObject.CompareTag("BehindPlayerCollider"))
+            {
+                GetComponentInParent<GameManager>().EndGame();
+                Debug.Log("EndGame");
+                return;
+            }
+            else
+                GetComponentInParent<GameManager>().AddPoint();
         }
         GetComponentInParent<EnemyMaster>().EnemyDestroyed();
         Destroy(gameObject);

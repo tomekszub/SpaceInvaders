@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 82288fc43965f1d4d8d2afccb343db87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boltOrigin: {fileID: 5209162347493500315}
   boltPrefab: {fileID: 7913341753446623447, guid: 0bb48533232a0c8418dddaa14d487153, type: 3}
+  shootingCooldown: 2
 --- !u!1 &5209162347493500314
 GameObject:
   m_ObjectHideFlags: 0

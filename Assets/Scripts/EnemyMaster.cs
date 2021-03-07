@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 public class EnemyMaster : MonoBehaviour
 {
-    int columnNumber = 5;
-
     [SerializeField]
     Bolt enemyBoltPrefab;
     [SerializeField]
@@ -16,12 +14,15 @@ public class EnemyMaster : MonoBehaviour
     Transform thisTransform;
     bool movingLeft = true;
     int rownumber = 5;
+    int columnNumber = 5;
+    int enemiesCount;
 
     public int ColumnNumber { get => columnNumber; }
 
     private void Awake()
     {
         thisTransform = transform;
+        enemiesCount = rownumber * columnNumber;
     }
     private void Start()
     {
@@ -77,10 +78,23 @@ public class EnemyMaster : MonoBehaviour
     }
     public void EnemyDestroyed()
     {
+        enemiesCount--;
+        if(enemiesCount == 0)
+        {
+            GetComponent<GameManager>().EndGame();
+            return;
+        }
         speed += 0.1f;
         foreach (var enemy in GetComponentsInChildren<EnemyShooting>())
         {
             enemy.ShortenCooldown();
+        }
+    }
+    public void ClearEnemies()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }

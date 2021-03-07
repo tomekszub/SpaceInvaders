@@ -23,10 +23,10 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if(moveLeft)
+        if(moveLeft && thisTransform.position.x > -1.925f)
             Move(-1);
 
-        if(moveRight)
+        if(moveRight && thisTransform.position.x < 1.925f)
             Move(1);
     }
 }
