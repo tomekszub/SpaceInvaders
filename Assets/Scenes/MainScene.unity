@@ -1575,7 +1575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBoltPrefab: {fileID: 1847009172488111256, guid: b0bc9d78c9e08c94d8733a86e4756f4e, type: 3}
   speed: 0.5
-  enemyPrefab: {fileID: 205309598504962056, guid: ad3ad80523f1501409a7dcc41ea9ffe8, type: 3}
+  shootingEnemyPrefab: {fileID: 6377742234665593780, guid: ad3ad80523f1501409a7dcc41ea9ffe8, type: 3}
+  enemyPrefab: {fileID: 7272429233718067559, guid: e47eac4f102c76f49a27cc5f5144edd1, type: 3}
 --- !u!4 &1868129156
 Transform:
   m_ObjectHideFlags: 0
@@ -2096,6 +2097,14 @@ PrefabInstance:
     - target: {fileID: 5209162347004735499, guid: 117357d18f4fffa4892798150019728e, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209162347004735499, guid: 117357d18f4fffa4892798150019728e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209162347004735499, guid: 117357d18f4fffa4892798150019728e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5209162347004735499, guid: 117357d18f4fffa4892798150019728e, type: 3}
       propertyPath: m_LocalPosition.x

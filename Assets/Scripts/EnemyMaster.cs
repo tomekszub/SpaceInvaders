@@ -8,13 +8,15 @@ public class EnemyMaster : MonoBehaviour
     [SerializeField]
     float speed = 1.4f;
     [SerializeField]
-    GameObject enemyPrefab;
+    EnemyShooting shootingEnemyPrefab;
+    [SerializeField]
+    Enemy enemyPrefab;
 
     List<GameObject> enemyBoltsPool = new List<GameObject>();
     Transform thisTransform;
     bool movingLeft = true;
-    int rownumber = 5;
-    int columnNumber = 5;
+    int rownumber = 4;
+    int columnNumber = 8;
     int enemiesCount;
 
     public int ColumnNumber { get => columnNumber; }
@@ -26,19 +28,24 @@ public class EnemyMaster : MonoBehaviour
     }
     private void Start()
     {
-        for (int j = 0; j < ColumnNumber; j++)
+        float startingfXPos = (ColumnNumber-1) * -0.25f;
+
+        for (int j = 0; j < rownumber; j++)
         {
-            for (int i = 0; i < rownumber; i++)
+            for (int i = 0; i < ColumnNumber; i++)
             {
-                Instantiate(enemyPrefab, new Vector3(-1+i*0.5f,j,0), Quaternion.Euler(new Vector3(180,0,0)), transform);
+                if(j == 0)
+                    Instantiate(shootingEnemyPrefab, new Vector3(startingfXPos + i * 0.5f, 4 - j,0), Quaternion.Euler(new Vector3(180,0,0)), transform);
+                else
+                    Instantiate(enemyPrefab, new Vector3(startingfXPos + i * 0.5f, 4 - j, 0), Quaternion.Euler(new Vector3(180, 0, 0)), transform);
             }
         }
     }
     private void Update()
     {
-        if (thisTransform.position.x <= -1.05f)
+        if (thisTransform.position.x <= -0.48f)
             movingLeft = false;
-        else if (thisTransform.position.x >= 1.05f)
+        else if (thisTransform.position.x >= 0.48f)
         {
             thisTransform.Translate(new Vector3(0,-0.3f,0));
             movingLeft = true;
