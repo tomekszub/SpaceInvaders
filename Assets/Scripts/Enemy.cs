@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("BehindPlayerCollider"))
             {
                 GetComponentInParent<GameManager>().EndGame();
-                Debug.Log("EndGame");
                 return;
             }
             else

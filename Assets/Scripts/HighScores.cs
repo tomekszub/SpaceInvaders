@@ -12,10 +12,8 @@ public static class HighScores
         {
             string hs = PlayerPrefs.GetString("HighScores");
             string[] highscoresArray = hs.Split('|');
-            Debug.Log(hs);
             foreach (var item in highscoresArray)
             {
-                Debug.Log(item);
                 highscores.Add(int.Parse(item));
             }
         }
@@ -51,7 +49,6 @@ public static class HighScores
         {
             sb.Append("|" + highscores[i]);
         }
-        Debug.Log(sb.ToString());
         PlayerPrefs.SetString("HighScores", sb.ToString());
     }
 

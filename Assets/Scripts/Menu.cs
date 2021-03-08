@@ -21,10 +21,6 @@ public class Menu : MonoBehaviour
         gamesPlayed.text = PlayerPrefs.GetInt("GamesPlayed").ToString();
         int i = 0;
         int[] highScores = HighScores.GetHighScores();
-        foreach (var item in highScores)
-        {
-            Debug.Log(item);
-        }
         foreach (var hsTb in highScoresTextBoxes)
         {
             if(i < highScores.Length)
